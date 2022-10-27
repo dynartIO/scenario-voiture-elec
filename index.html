@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!-- 
-Créé par Benoit Ribon (dynartI/O) - Octobre 2022
-Disponible sous licence CC BY-NC-SA
+Copyright (C) 2022 - Benoit Ribon (dynartI/O) - https://dynartio.com
+Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiée par la Free Software Foundation ; soit la version 3 de la licence, soit (à votre gré) toute version ultérieure.
+Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ; sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER. Consultez la GNU General Public License pour plus de détails.
+Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ; si ce n'est pas le cas, consultez <http://www.gnu.org/licenses>.
  -->
 
 <html lang="fr">
@@ -233,7 +235,7 @@ Disponible sous licence CC BY-NC-SA
 	<img src="img/cc-by-nc-sa_icon.svg">&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 <div>
-	<i>Réalisé par Benoit Ribon (<a href="https://dynartio.com" target="_blank">dynartI/O</a>) - 2022 - <a href="#popup">Informations et mentions légales</a></i>
+	<i>Copyright (C) 2022 - Benoit Ribon (<a href="https://dynartio.com" target="_blank">dynartI/O</a>) - 2022 - <a href="#popup">Informations et mentions légales</a></i>
 </div>
 </footer>
 
@@ -245,19 +247,23 @@ Disponible sous licence CC BY-NC-SA
 				Cette page vous propose une modélisation interactive des impacts climatiques liés au parc automobile français. 
 				Vous pouvez ainsi définir votre scénario pour le parc de demain et vérifier qu'il répond aux objectifs 
 				(c'est-à-dire une division par un facteur 2 des émissions de CO2 d'ici 2030 et par un facteur 4 d'ici 2050).<br><br>
-				Le modèle utilisé est un modèle simplifié dont vous pouvez modifier chacun des paramètres. Il n'y a pas de variable cachées. Le modèle est disponible en accès libre sous licence CC BY-NC-SA (voir code source, ou GitHub) et ouvert aux critiques.<br><br>
-				Le modèle ne calcule (pour l'instant) que les émissions de gaz à effet de serre. La transition du parc automobile thermique vers l'électrique ne saurait se résumer à ce seul paramètre, aussi important soit-il. Des questions liées à l'usage de ressources, aux enjeux économiques et à la place de l'automobile dans nos sociétés devraient également être abordées pour arbitrer entre différents scénarios.
+				
+				Le modèle ne calcule (pour l'instant) que les émissions de gaz à effet de serre. La transition du parc automobile thermique vers l'électrique ne saurait toutefois se résumer à ce seul paramètre, aussi important soit-il. Des questions liées à l'usage de ressources, aux enjeux économiques et à la place de l'automobile dans nos sociétés devraient également être abordées pour arbitrer entre différents scénarios.<br><br>
+				
+				Le modèle utilisé est un modèle simplifié dont vous pouvez modifier chacun des paramètres. Il n'y a pas de variable cachée. Le programme est disponible <a href="https://github.com/dynartIO/scenario-voiture-elec" target="_blank">en accès libre</a> sous licence GNU GPL v3.
 				
 				<br><br><u>Hypothèses du modèle</u> :<br>
 				<ul><li>Les émissions prises en comptes sont celles liées à la fabrication et l'utilisation du véhicule. D'autres postes,
 				comme ceux liés à la maintenance ou la fin de vie ne sont pas intégrés. Leurs contributions au bilan global sont considérées marginales.</li>
 				<li>La informations collectées mentionnent la nécessité de remplacer une fois la batterie pendant la durée de vie d'une voiture électrique. Le bilan de fabrication des batteries est donc multiplié par deux.</li>
+				<li>Les impacts liés à la fabrication d'un véhicule sont répartis sur l'ensemble de sa durée de vie.</li>
 				<li>Les caractéristiques des véhicules thermiques correspondent aux moteurs à essence. Les émissions liées aux moteurs diesel étant similaires (que ce soit pour la fabrication du véhicule ou les émissions de CO2 au km), ils sont comptabilisés commes des moteurs à essence.</li></ul>
 				
 				<br><u>Donées sources</u> :<br>
 				Nous sourçons ci-dessous
 				les principaux paramètres utilisés. Si vous avez des sources divergentes avec les données utilisées, n'hésitez pas à nous le signaler, nous adapterons le modèle en conséquence.
 				<ul>
+				<li>Emissions totale du secteur des transport - hors fabrication (69 Mt) : <a href="https://www.notre-environnement.gouv.fr/themes/climat/les-emissions-de-gaz-a-effet-de-serre-et-l-empreinte-carbone-ressources/article/les-emissions-de-gaz-a-effet-de-serre-du-secteur-des-transports" target="_blank"> https://www.notre-environnement.gouv.fr/themes/climat/les-emissions-de-gaz-a-effet-de-serre-et-l-empreinte-carbone-ressources/article/les-emissions-de-gaz-a-effet-de-serre-du-secteur-des-transports</a></li>
 				<li>Facteur d'émissions (2.75 kg eqCO2/L pour l'essence, 59.9 g eqCO2/kWh pour l'électricité) : Base Carbone ADEME  <a href="https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm" target="_blank">https://bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm</a></li>
 				<li>Emissions liées à la fabrication des batteries (75 kg eqCO2/kWh) : <a href="https://www.transportenvironment.org/discover/ev-batteries-are-getting-cleaner-and-cleaner-2-3-times-better-2-years-ago/" target="_blank">https://www.transportenvironment.org/discover/ev-batteries-are-getting-cleaner-and-cleaner-2-3-times-better-2-years-ago/</a></li>
 				</ul>
@@ -267,7 +273,8 @@ Disponible sous licence CC BY-NC-SA
                 <h2>Nous contacter</h2>
                 Pour nous contacter à propos de cet outil (ou pour d'autres sujets) : <a href="mailto:voiture-elec@apps.dynartio.com">voiture-elec@apps.dynartio.com</a><br><br>
 
-                <h2>Mentions légales</h2>
+                <h2>Utilisation et mentions légales</h2>
+				La présente application est proposée en l'état, en consultation libre, dans un but pédagogique, mais sans aucune garantie, que ce soit en ce qui concerne son bon fonctionnement ou la véracité des informations présentées.<br>
                 Voir les mentions légales : <a href="https://dynartio.com/mentions-legales/" target="_blank">https://dynartio.com/mentions-legales/</a>
             </div>
         </div>
