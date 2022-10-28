@@ -5,6 +5,31 @@ Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GAR
 Vous devez avoir reçu une copie de la GNU General Public License en même temps que ce programme ; si ce n'est pas le cas, consultez <http://www.gnu.org/licenses>. 
 */
 
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
 var initvalues = {
 "nb_vehicules":32, // millions 
 "part_ve": 2, // % 
@@ -34,15 +59,50 @@ var svgscale = 2; // px par millions de tonnes CO2
 var myval;
 var xpos = barspace+10;
 
+var tweettext;
+
+var scroll_pos = 300;
+var is_shown_result = false;
+
+function pageScroll() {
+  window.scrollBy(0, 10);
+	scroll_pos += 10;  // horizontal and vertical scroll increments
+  scrolldelay = setTimeout('pageScroll()', 8); // scrolls every 100 milliseconds
+  if (scroll_pos >= document.body.offsetHeight) {
+    clearTimeout(scrolldelay);
+	scroll_pos = 0;
+  }
+
+}
+
 
 $(document).ready(function(){
-      $("#click_detail_vehicule_init").click(function(){
-        $("#detail_vehicule_init").slideToggle("slow");
+	 $("#submit-button").click(function(){
+        $("#result-div").show();
+		 is_shown_result = true;
+		setTimeout(function(){
+			 pageScroll();}, 10);
+		//window.scrollTo(0, document.body.scrollHeight);}, 10);
       });
-	  $("#click_detail_vehicule").click(function(){
+	  $("#button-carmod").click(function(){
         $("#detail_vehicule").slideToggle("slow");
       });
-    });
+	  $("#button-reinit").hover(
+		  function() { $("#button-text-reinit").show(); },
+		  function() { $("#button-text-reinit").hide(); }
+		);
+	 $("#button-caract").hover(
+		  function() { $("#button-text-caract").show(); },
+		  function() { $("#button-text-caract").hide(); }
+		);
+		 $("#button-carmod").hover(
+		  function() { $("#button-text-carmod").show(); },
+		  function() { $("#button-text-carmod").hide(); }
+		);
+
+});
+
+
 
 
 function draw() {
@@ -248,6 +308,19 @@ function synthese_scenario(initvalues, initcalcvalues, uservalues, usercalcvalue
 			myelement.innerHTML = myval + "&nbsp;%";
 		}
 	}
+	return mycalc;
+}
+
+function round(value, precision) {
+	return Math.round(value*Math.pow(10, precision))/Math.pow(10, precision);
+}
+
+function plussify(value) {
+	if (value >= 0) {
+		return "+" + value;
+	} else {
+		return value;
+	}
 }
 
 function update(event) {
@@ -270,6 +343,11 @@ function update(event) {
 	document.getElementById("val_nb_vehicules").innerHTML = uservalues["nb_vehicules"];
 	document.getElementById("val_km_annuel").innerHTML = uservalues["km_annuel"];
 	
+	document.getElementById("diff_nb_vehicules").innerHTML = "(" + plussify(round((uservalues["nb_vehicules"]-initvalues["nb_vehicules"]), 1)) + ")";
+	document.getElementById("diff_km_annuel").innerHTML = "(" + plussify(round(uservalues["km_annuel"]-initvalues["km_annuel"], 1)) + ")";
+	document.getElementById("diff_nb_vt").innerHTML = "(" + plussify(round((calcvalues["nb_vt"]-initcalcvalues["nb_vt"])/1e6,1)) + ")";
+	document.getElementById("diff_nb_ve").innerHTML = "(" + plussify(round((calcvalues["nb_ve"]-initcalcvalues["nb_ve"])/1e6, 1)) + ")";
+	
 	document.getElementById("division_scenario").innerHTML = Math.round(initcalcvalues["bilan_total"]*10/calcvalues["bilan_total"])/10;
 	
 	reduction = Math.round((calcvalues["bilan_total"]-initcalcvalues["bilan_total"])*100/initcalcvalues["bilan_total"]);
@@ -282,9 +360,72 @@ function update(event) {
 		myelement.innerHTML = "Même quantité";
 	}
 	
-	synthese_scenario(initvalues, do_calc(initvalues), uservalues, calcvalues);
+	calcsynth = synthese_scenario(initvalues, do_calc(initvalues), uservalues, calcvalues);
 
 	draw();
+	
+	if (is_shown_result) {
+		tweettext = "Mon scénario pour#global_change les émissions de GES du parc auto français:\n";
+		tweettext += "-#nbveh nombre de véhicules🚙\n";
+		tweettext += "-#nbkm kms parcourus au total️🛣\n";
+		tweettext += "-️Électrification de #elec_pct% des V. thermiques actuels⚡\n";
+		tweettext += "- Évolut° GES/km des VT (#eff_vt) et VE (#eff_ve)";
+
+		myval = reduction; //round(calcvalues["bilan_total"], 0);
+		if (myval>0) {
+			tweettext = tweettext.replace("#global_change", "↗️de " + myval + "%"); 
+		} else if (myval<0) {
+			tweettext = tweettext.replace("#global_change", "↘️de " + (-myval) + "%");
+		} else if (myval==0) {
+			tweettext = tweettext.replace("#global_change", " ne pas changer");
+		}
+		
+		myval = round(calcsynth["sobriete_equipement"],0); //round(calcvalues["bilan_total"], 0);
+		mykey = "#nbveh";
+		if (myval>0) {
+			tweettext = tweettext.replace(mykey, "↗️de " + myval + "% du"); 
+		} else if (myval<0) {
+			tweettext = tweettext.replace(mykey, "↘️de " + (-myval) + "% du");
+		} else if (myval==0) {
+			tweettext = tweettext.replace(mykey, " Même");
+		}
+		
+		myval = round(calcsynth["sobriete_km"],0); //round(calcvalues["bilan_total"], 0);
+		mykey = "#nbkm";
+		if (myval>0) {
+			tweettext = tweettext.replace(mykey, "↗️de " + myval + "% des"); 
+		} else if (myval<0) {
+			tweettext = tweettext.replace(mykey, "↘️de " + (-myval) + "% des");
+		} else if (myval==0) {
+			tweettext = tweettext.replace(mykey, " Même nombre de");
+		}
+		
+		myval = round(calcsynth["electrification"],0); //round(calcvalues["bilan_total"], 0);
+		mykey = "#elec_pct";
+		tweettext = tweettext.replace(mykey, myval); 
+		
+		myval = round(calcsynth["efficacite_ve"],0); //round(calcvalues["bilan_total"], 0);
+		mykey = "#eff_ve";
+		if (myval==0) {
+			tweettext = tweettext.replace(mykey, "inchangé"); 
+		} else {
+			tweettext = tweettext.replace(mykey, myval + "%"); 
+		}
+		
+		myval = round(calcsynth["efficacite_vt"],0); //round(calcvalues["bilan_total"], 0);
+		mykey = "#eff_vt";
+		if (myval==0) {
+			tweettext = tweettext.replace(mykey, "inchangé"); 
+		} else {
+			tweettext = tweettext.replace(mykey, myval + "%"); 
+		}
+
+		
+		//https://github.com/chrisachard/patio11bot/blob/dynamic-tweet-button/index.html
+		document.getElementById("tweet-button").innerHTML = ' <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="' + tweettext + '" data-url="http://apps.dynartio.com/scenario-voiture-elec/" data-lang="fr" data-show-count="false" id="tweetlink">Tweet</a>';
+		//document.getElementById("tweetlink").setAttribute("data-text", tweettext);
+		twttr.widgets.load();
+	}
 }
 
 
@@ -297,6 +438,7 @@ function initialisation() {
 			myel.innerHTML = initvalues[field];
 		}	
 	}
+	
 }
 
 initialisation();

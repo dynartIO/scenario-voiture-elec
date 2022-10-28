@@ -9,6 +9,23 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+
+<!-- TWITTER META -->
+<meta name="twitter:title" content="Scénario de transition énergétique pour le parc automobile français">
+<meta name="twitter:description" content="Déterminez la configuration du parc auto pour atteindre les objectifs climatiques">
+<meta name="twitter:image" content="https://apps.dynartio.com/scenario-voiture-elec/img/img-rezosocio.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- FACEBOOK & LINKEDIN META -->
+<meta name="title" property="og:title" content="Scénario de transition énergétique pour le parc automobile français">
+<meta name="type" property="og:type" content="article" />
+<meta name="url" property="og:url" content="https://apps.dynartio.com/scenario-voiture-elec/">
+<meta name="image" property="og:image" content="http://apps.dynartio.com/scenario-voiture-elec/img/img-rezosocio.png">
+<meta property="og:image:secure_url" content="https://apps.dynartio.com/scenario-voiture-elec/img/img-rezosocio.png" /> 
+<meta property="og:image:type" content="image/png" /> 
+<meta name="description" property="og:description" content="Déterminez la configuration du parc auto pour atteindre les objectifs climatiques">
+<meta name="author" content="B. Ribon (dynartI/O)">
+
 <title>Scénario de transition énergétique pour le parc automobile français</title>
 <!-- Load d3.js -->
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
@@ -17,129 +34,68 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: fr_FR</script>
+
+
 
 </head>
 
 <body>
+<script></script>
 
 <header>
-        <div class="header-left-item">
-			<h1>Scénario de transition énergétique pour le parc automobile français (V 1.0)</h1>
+        <div class="header-left-item" style="display:flex">
+			<h1>Scénario de transition énergétique pour le parc automobile français</h1>
 		</div>
         <div id="imgdiv_accessmenu" class="header-right-item"> 
-                <a href="#popup"><img id="img_accessmenu" src="img/info_icon.svg"></a>
+                <a href="#popup2"><img id="img_accessmenu" src="img/info_icon.svg"></a>
         </div>
 </header>
-<h1 style="display:none">Scénario de transition énergétique pour le parc automobile français (V 1.0)</h1>
+
 <div class="content">
+	<!-- <div style="margin:30px; margin-left:180px; margin-right:180px;"> -->
+		<!-- <p style="font-size:18px; text-align:center;"><b>Le futur du parc automobile est entre vos mains :</b><br>Déterminez ses caractéristiques pour réduire les émissions de gaz à effet de serre.<br>L'objectif est de -40% d'ici 2030, et de -75% (facteur 4) à l'horizon 2050. -->
+		<!-- </p> -->
+	<!-- </div> -->
+	<div class="config-all-blocs">
 
-<div class="config-all-blocs">
-<div class="config-bloc">
-	<div class="config-bloc-line">
-		<h3>Parc actuel (2022)</h3>
-	</div>
+		<div class="config-side">&nbsp;</div>
 
-	<div class="config-bloc-line">
-		<span id="init_nb_vehicules" size="3">??</span>&nbsp;millions d'automobiles
-	</div>
-	
-	<div class="config-part-ve-line config-bloc-line">
-			
-			<div class="big_content left_content"><span id="init_pct_vt">??</span>%</div>
-				<img src="img/gasoline_icon.png" class="annexe_car_icon">
-				&nbsp;&nbsp;_______&nbsp;&nbsp;
-				<img src="img/battery_icon.png" class="annexe_car_icon">
-				<div class="big_content right_content"><span id="init_pct_ve">??</span>%</div>
-				<div class="small_content right_content">
-				<span id="init_nb_ve">??</span>&nbsp;millions de VE<br>
-				<span id="init_nb_vt">??</span>&nbsp;millions de VT
-				</div>
-			
-	</div>
-	<div class="config-bloc-line">
-		<span id='init_km_annuel'>??</span>&nbsp;km / véhicule / an
-	</div>
-	<div class="config-bloc-line" style="margin-bottom:0px;">
-		<b>Caractéristique des véhicules</b>
-	</div>
-		<div class="config-bloc-line" style="margin-bottom:0px;">
-			<img src="img/car_icon.png" class="small_car_icon">&nbsp;&nbsp;&nbsp;
-			<img src="img/gasoline_icon.png" class="annexe_car_icon">:&nbsp;<span id="init_bilan_km_vt">??</span>&nbsp;g eq.CO2/km
-			&nbsp;&nbsp;
-			<img src="img/battery_icon.png" class="annexe_car_icon">:&nbsp;<span id="init_bilan_km_ve">??</span>&nbsp;g eq.CO2/km
-			
-		</div>
-		<div class="config-bloc-line config-bloc-line-small">
-			<div id="click_detail_vehicule_init"><a href="#">Voir le détail des caractéristiques</a></div>
-		</div>
-		<div id="detail_vehicule_init" class="vtve_bloc config-bloc-line" style="display:none">
-			<div class="title_bloc_veh_div" style="text-align:right">
-			<center><img class="small_car_icon"></center>
-				Durée vie :<br><hr>
-				Conso :<br>
-				Autonom. :<br><hr>
-				Fab. sf bat : <br>
-				Fab. bat. :<br><hr>
-				FE GES :
+		<div class="config-bloc">
+			<div class="config-bloc-line">
+			<p style="font-size:1.3rem; text-align:center;"><b>Le futur du parc automobile est entre vos mains :</b><br><span style="font-size:1rem; text-align:center;">Déterminez ses caractéristiques pour réduire les émissions de gaz à effet de serre.<br>L'objectif est de -40% d'ici 2030, et de -75% (facteur 4) à l'horizon 2050.</span></p>
+		
+			<!-- <h3>Votre scénario du futur&nbsp;&nbsp;<span class="gray-notice">(vs. parc actuel)</span></h3> -->
 			</div>
-			<div class="vtve_bloc_veh_div">
-			<center><img src="img/gasoline_icon.png" class="small_car_icon"></center>
-				<span id="init_duree_vie_vt">??</span> ans<br><hr>
-				<span id="init_conso_vt">??</span> L/100km<br>
-				<br><hr>
-				<span id="init_ges_structure_vt">??</span> t eq.CO2<br><br><hr>
-				<span id="init_ges_reseau_vt">??</span> kg eq.CO2/L<br>
-
+				<div style="text-align:right;width:95%"><span class="gray-notice">(vs. le parc actuel)</span></div>
+			<div class="config-bloc-line">
+				<input type="range" id="nb_vehicules" style="width:270px" min="0" max="45">
+				&nbsp;&nbsp;&nbsp;<span id="val_nb_vehicules">??</span>&nbsp;millions de véhicules&nbsp;&nbsp;<span id="diff_nb_vehicules" class="gray-notice">(+10.2)</span>
 			</div>
-			<div class="vtve_bloc_veh_div">
-			<center><img src="img/battery_icon.png" class="small_car_icon"></center>
-				<span id="init_duree_vie_ve">??</span> ans<br><hr>
-				<span id="init_conso_ve">??</span> kWh/100km<br>
-				<span id="init_autonomie_ve">??</span> km<br><hr>
-				<span id="init_ges_structure_ve">??</span> t eq.CO2<br>
-				<span id="init_ges_batterie_ve">??</span> kg eq.CO2/kWh<br><hr>
-				<span id="init_ges_reseau_ve">??</span> g eq.CO2/kWh<br>
-
-				
-			</div>
-		</div>
-
-
-</div>
-
-<div style="align-self: flex-start; margin-top:120px;">
-&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/arrow2_icon.svg" class="car_icon">&nbsp;&nbsp;&nbsp;&nbsp;
-</div>
-
-<div class="config-bloc">
-	<div class="config-bloc-line"><h3>Configurez votre scénario du futur</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="small_content"><a href="#" onclick="javascript:initialisation()">Réinitialiser</a></span></div>
-	<div class="config-bloc-line">
-		<input type="range" id="nb_vehicules" style="width:240px" min="0" max="45">
-		&nbsp;&nbsp;&nbsp;<span id="val_nb_vehicules">??</span>&nbsp;millions de véhicules
-	</div>
 			
 			
 		<div class="config-part-ve-line config-bloc-line">
 
-				<div class="big_content left_content"><span id="pct_vt">??</span>%</div>
+				<div class="big_content left_content" style="text-align:right"><span id="pct_vt">??</span>%</div>
 				<img src="img/gasoline_icon.png" class="annexe_car_icon">
-				&nbsp;&nbsp;<input type="range" id="part_ve" style="width:120px">&nbsp;&nbsp;
+				&nbsp;&nbsp;<input type="range" id="part_ve" style="width:150px">&nbsp;&nbsp;
 				<img src="img/battery_icon.png" class="annexe_car_icon">
 				<div class="big_content right_content"><span id="pct_ve">??</span>%</div>
-				<div class="small_content right_content">
-				<span id="nb_ve">??</span>&nbsp;millions de VE<br>
-				<span id="nb_vt">??</span>&nbsp;millions de VT
+				<div class="small_content right_content" style="width:190px">
+				<span id="nb_ve">??</span>&nbsp;millions de VE&nbsp;&nbsp;<span id="diff_nb_ve" class="gray-notice">(+10.2)</span><br>
+				<span id="nb_vt">??</span>&nbsp;millions de VT&nbsp;&nbsp;<span id="diff_nb_vt" class="gray-notice">(+10.2)</span>
 				</div>
 			
 			</div>
 			
 		
 			<div class="config-bloc-line">
-			<input type="range" id="km_annuel" style="width:230px" min="1000" max="40000">&nbsp;&nbsp;&nbsp;
-			<span id="val_km_annuel" size="5">??</span>&nbsp;km / véhicule / an
+			<input type="range" id="km_annuel" style="width:260px" min="1000" max="40000">&nbsp;&nbsp;&nbsp;
+			<span id="val_km_annuel" size="5">??</span>&nbsp;km / véhicule / an&nbsp;&nbsp;<span id="diff_km_annuel" class="gray-notice">(+10.2)</span>
 			</div>
 			
-	
+
 		
 			<div class="config-bloc-line" style="margin-bottom:0px;">
 		<b>Caractéristique des véhicules</b>
@@ -150,9 +106,7 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 			&nbsp;&nbsp;
 			<img src="img/battery_icon.png" class="annexe_car_icon">:&nbsp;<span id="bilan_km_ve">??</span>&nbsp;g eq.CO2/km
 		</div>
-		<div class="config-bloc-line config-bloc-line-small">
-			<div id="click_detail_vehicule"><a href="#">Modifier le détail des caractéristiques</a></div>
-		</div>
+		
 			<div id="detail_vehicule" class="vtve_bloc config-bloc-line" style="display:none">
 			<div class="title_bloc_veh_div" style="text-align:right">
 			<center><img class="small_car_icon"></center>
@@ -185,14 +139,54 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 
 </div>
 
+<!-- SIDE BUTTONS --------------------------------------------------------------------- -->
+
+<div class="config-side" style="display:flex"> 
+	<div class="config-side-col">
+		<div class="config-bloc-line config-bloc-line-small config-side-line" id="button-reinit">
+		<a href="#" onclick="javascript:initialisation()" title="Réinitialiser les valeurs"><div class="right-button"><img src="img/reload_icon.svg"></div></a>
+		</div>
+
+			<div class="config-bloc-line config-bloc-line-small config-side-line" id="button-caract">
+				<a href="#popup" title="Afficher les caractéristiques du parc actuel"><div class="right-button"><img src="img/chart_icon.svg"></div></a>
+			</div>
+				<div class="config-bloc-line config-bloc-line-small config-side-line" id="button-carmod">
+				<a href="#" title="Modifier les caractéristiques des véhicules"><div class="right-button"><img src="img/carsetting_icon.svg"></div></a>
+			</div>
+	</div>
+		<div class="config-side-col">
+		<div class="config-bloc-line config-bloc-line-small config-side-line">
+		<span id="button-text-reinit" style="display:none">Réinitialiser les valeurs</span>&nbsp;
+		</div>
+
+			<div class="config-bloc-line config-bloc-line-small config-side-line">
+				<span id="button-text-caract" style="display:none">Voir les caractéristiques du parc actuel</span>&nbsp;
+			</div>
+				<div class="config-bloc-line config-bloc-line-small config-side-line">
+				<span id="button-text-carmod" style="display:none">Modifier les caractéristiques des véhicules</span>&nbsp;
+			</div>
+	</div>
+ </div>
+
 
 </div>
 
-<center><h2 style="margin:20px">Résultats du scénario</h2>
+<div>
+<center><div id="submit-button" class="submit-button">
+Voir les résultats de la simulation
+</div>
+</center>
+</div>
+
+<!-- RESULTAT COMPARATIF ----------------- ---------------------------------------------------- -->
+
+<div id="result-div" style="display:none">
+<center>
+
 <div class="result_line">
 
 	<div style="margin-left:20px;margin-right:20px; margin-bottom:10px">
-	<h3>Comparatif du scénario avec le parc actuel</h3><br>
+	<h3>Votre scénario vs. le parc actuel</h3><br>
 		<svg id="dataviz_area" height=290 width=430></svg><br>
 		<p style="font-size:10px;width:430;line-height:1;">Différences liées la fabrication (Fab.), le kilométrage total (Km) et l'efficacité<br>carbone à l'utilisation (Eff) des véhicules thermiques (VT) et éléctriques (VE)</p>
 	</div>
@@ -221,34 +215,62 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 		</div>
 <br>
 		<div style="display:flex;align-items:center;justify-content:center;width:480px;">
-		<div class="spot_synthese_img" style="margin-top:7px"><p><img src="img/arrow_icon.svg" class="annexe_car_icon"></p></div>
-		<div class="spot_synthese_value" style="width:fit-content;"><h3>
-		<span id="reduction_scenario">??</span>&nbsp;d'émissions de GES (Facteur&nbsp;<span id="division_scenario">1</span>)</h3></div>
+			<div class="spot_synthese_img" style="margin-top:7px"><p><img src="img/arrow_icon.svg" class="annexe_car_icon"></p></div>
+			<div class="spot_synthese_value" style="width:fit-content;"><h3>
+			<span id="reduction_scenario">??</span>&nbsp;d'émissions de GES (Facteur&nbsp;<span id="division_scenario">1</span>)</h3></div>
 		</div>
+		
+		
 			
 	</div>
 </div>
+
+
+
 </center>
+</div>
 <br><br><br>
 <footer style="display:flex;align-items:center;justify-content:center;">
 <div>
-	<img src="img/cc-by-nc-sa_icon.svg">&nbsp;&nbsp;&nbsp;&nbsp;
+	<i>Réalisé par B. Ribon (<a href="https://dynartio.com" target="_blank">dynartI/O</a>) - 2022 - <a href="#popup2">Informations et mentions légales</a> - Partager sur les réseaux sociaux :&nbsp;&nbsp;</i>
 </div>
-<div>
-	<i>Copyright (C) 2022 - Benoit Ribon (<a href="https://dynartio.com" target="_blank">dynartI/O</a>) - 2022 - <a href="#popup">Informations et mentions légales</a></i>
+<div style="display:flex;">
+				<!-- data-text="xxx"  !-->
+		<div class="share-sn-button">		
+			<div id="tweet-button">
+
+			<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="http://apps.dynartio.com/scenario-voiture-elec/" data-lang="fr" data-show-count="false" id="tweetlink2">Tweet</a>
+			</div>
+		</div>
+				<div class="share-sn-button">		
+		<div>
+		<script type="IN/Share" data-url="http://apps.dynartio.com/scenario-voiture-elec/"></script>
+		
+		</div>
+		</div>
+				<div class="share-sn-button">		
+		<div class="fb-share-button" 
+		data-href="http://apps.dynartio.com/scenario-voiture-elec/" 
+		data-layout="button_count">
+		</div>
+		</div>
+
 </div>
 </footer>
 
+<!-- POPUP OVERLAY 2 --------------------------------------------------------------------- -->
+
 <div class="box-overlay">
-        <div class="overlay" id="popup">
+        <div class="overlay" id="popup2">
             <div class="popup">
                 <h2>Informations</h2>
 				<a class="close" href="#">&times;</a>
-				Cette page vous propose une modélisation interactive des impacts climatiques liés au parc automobile français. 
-				Vous pouvez ainsi définir votre scénario pour le parc de demain et vérifier qu'il répond aux objectifs 
-				(c'est-à-dire une division par un facteur 2 des émissions de CO2 d'ici 2030 et par un facteur 4 d'ici 2050).<br><br>
+				<p align="center"><b>Scénario de transition énergétique pour le parc automobile français (Version Beta)</b></p><br>
+				Le parc automobile français émet chaque année plus de 70 millions de tonnes de CO2 chaque année. Pour réduire ces émissions, l'électrification de ces véhicules apparaît comme une solution intéressante, notamment lorsqu'ils sont alimentés par de l'électricité à faible émissions de CO2 comme en France. Néanmoins, la fabrication des voitures éléctriques génère des quantités importantes de CO2 (environ une dizaine de tonnes). 
 				
-				Le modèle ne calcule (pour l'instant) que les émissions de gaz à effet de serre. La transition du parc automobile thermique vers l'électrique ne saurait toutefois se résumer à ce seul paramètre, aussi important soit-il. Des questions liées à l'usage de ressources, aux enjeux économiques et à la place de l'automobile dans nos sociétés devraient également être abordées pour arbitrer entre différents scénarios.<br><br>
+				Aussi, est-ce que l'électrification totale est une solution satisfaisante pour réduire les émissions de CO2 d'un facteur 2 d'ici 2030 et d'un facteur 4 d'ici 2050 ? Nous vous proposons de le déterminer par vous-même grâce à ce simulateur.<br><br>
+				
+				Le modèle ne calcule (pour l'instant) que les émissions de gaz à effet de serre. La transition du parc automobile thermique vers l'électrique ne saurait toutefois se résumer à ce seul paramètre, aussi important soit-il. Des questions liées à l'usage de ressources, aux enjeux économiques, aux capacités manufacturières et à la place de l'automobile dans nos sociétés devraient également être abordées pour arbitrer entre différents scénarios.<br><br>
 				
 				Le modèle utilisé est un modèle simplifié dont vous pouvez modifier chacun des paramètres. Il n'y a pas de variable cachée. Le programme est disponible <a href="https://github.com/dynartIO/scenario-voiture-elec" target="_blank">en accès libre</a> sous licence GNU GPL v3.
 				
@@ -282,9 +304,84 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 	
 </div>
 
-</body>
+<!-- POPUP OVERLAY --------------------------------------------------------------------- -->
+<div class="box-overlay">
+        <div class="overlay" id="popup">
+            <div class="popup" style="width:500px;">
+
+<div>
+<h2>Caractéristiques du parc actuel (2022)</h2>
+<a class="close" href="#">&times;</a>
+
+	<div class="config-bloc-line">
+		<span id="init_nb_vehicules" size="3">??</span>&nbsp;millions d'automobiles
+	</div>
+	
+	<div class="config-part-ve-line config-bloc-line">
+			
+			<div class="big_content left_content"><span id="init_pct_vt">??</span>%</div>
+				<img src="img/gasoline_icon.png" class="annexe_car_icon">
+				&nbsp;&nbsp;_______&nbsp;&nbsp;
+				<img src="img/battery_icon.png" class="annexe_car_icon">
+				<div class="big_content right_content"><span id="init_pct_ve">??</span>%</div>
+				<div class="small_content right_content">
+				<span id="init_nb_ve">??</span>&nbsp;millions de VE<br>
+				<span id="init_nb_vt">??</span>&nbsp;millions de VT
+				</div>
+			
+	</div>
+	<div class="config-bloc-line">
+		<span id='init_km_annuel'>??</span>&nbsp;km / véhicule / an
+	</div>
+	<div class="config-bloc-line" style="margin-bottom:0px;">
+		<b>Caractéristique des véhicules</b>
+	</div>
+		<div class="config-bloc-line" style="margin-bottom:0px;">
+			<img src="img/car_icon.png" class="small_car_icon">&nbsp;&nbsp;&nbsp;
+			<img src="img/gasoline_icon.png" class="annexe_car_icon">:&nbsp;<span id="init_bilan_km_vt">??</span>&nbsp;g eq.CO2/km
+			&nbsp;&nbsp;
+			<img src="img/battery_icon.png" class="annexe_car_icon">:&nbsp;<span id="init_bilan_km_ve">??</span>&nbsp;g eq.CO2/km
+			
+		</div>
+		
+		<div id="detail_vehicule_init" class="vtve_bloc config-bloc-line">
+			<div class="title_bloc_veh_div" style="text-align:right">
+			<center><img class="small_car_icon"></center>
+				Durée vie :<br><hr>
+				Conso :<br>
+				Autonom. :<br><hr>
+				Fab. sf bat : <br>
+				Fab. bat. :<br><hr>
+				FE GES :
+			</div>
+			<div class="vtve_bloc_veh_div">
+			<center><img src="img/gasoline_icon.png" class="small_car_icon"></center>
+				<span id="init_duree_vie_vt">??</span> ans<br><hr>
+				<span id="init_conso_vt">??</span> L/100km<br>
+				<br><hr>
+				<span id="init_ges_structure_vt">??</span> t eq.CO2<br><br><hr>
+				<span id="init_ges_reseau_vt">??</span> kg eq.CO2/L<br>
+
+			</div>
+			<div class="vtve_bloc_veh_div">
+			<center><img src="img/battery_icon.png" class="small_car_icon"></center>
+				<span id="init_duree_vie_ve">??</span> ans<br><hr>
+				<span id="init_conso_ve">??</span> kWh/100km<br>
+				<span id="init_autonomie_ve">??</span> km<br><hr>
+				<span id="init_ges_structure_ve">??</span> t eq.CO2<br>
+				<span id="init_ges_batterie_ve">??</span> kg eq.CO2/kWh<br><hr>
+				<span id="init_ges_reseau_ve">??</span> g eq.CO2/kWh<br>
+
+				
+			</div>
+		</div>
+
+
+</div>
+</div></div></div>
 
 <script type="text/javascript" src="script.js"></script>
 
+</body>
 
 </html>
