@@ -348,9 +348,10 @@ function update(event) {
 	document.getElementById("diff_nb_vt").innerHTML = "(" + plussify(round((calcvalues["nb_vt"]-initcalcvalues["nb_vt"])/1e6,1)) + ")";
 	document.getElementById("diff_nb_ve").innerHTML = "(" + plussify(round((calcvalues["nb_ve"]-initcalcvalues["nb_ve"])/1e6, 1)) + ")";
 	
-	document.getElementById("division_scenario").innerHTML = Math.round(initcalcvalues["bilan_total"]*10/calcvalues["bilan_total"])/10;
+	division_scenario = round(initcalcvalues["bilan_total"]/calcvalues["bilan_total"], 1);
+	document.getElementById("division_scenario").innerHTML = division_scenario;
 	
-	reduction = Math.round((calcvalues["bilan_total"]-initcalcvalues["bilan_total"])*100/initcalcvalues["bilan_total"]);
+	reduction = round((1/division_scenario-1)*100,0);
 	myelement = document.getElementById("reduction_scenario");
 	if (reduction > 0) {
 		myelement.innerHTML = "+" + reduction + "&nbsp;%";
