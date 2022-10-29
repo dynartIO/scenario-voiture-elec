@@ -27,7 +27,8 @@ header{
   height: var(--header-height);
   box-shadow: 6px 4px 25px rgba(19, 103, 2, 0.2);
   z-index: 100;
-  background: var(--standard-green);
+  /*background: var(--standard-green);*/
+  background: linear-gradient(180deg, rgba(33,100,65,1) 0%, rgba(99,163,117,1) 100%);
     color: #fff;
 }
 
@@ -357,8 +358,8 @@ td {
 	 background: var(--standard-green);
 	 color: #fff;
 	 width: fit-content;
-	 padding:8px;
-	 font-weight: bold;
+	 padding:8px 12px 8px 12px;
+
 	 cursor: pointer;
 	 margin:20px;
 }
