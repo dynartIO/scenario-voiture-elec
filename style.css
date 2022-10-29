@@ -355,11 +355,12 @@ td {
 }
 
 .submit-button {
-	 background: var(--standard-green);
+	/* background: var(--standard-green); */
+	  background: linear-gradient(0deg, rgba(33,100,65,1) 0%, rgba(99,163,117,1) 100%);
 	 color: #fff;
 	 width: fit-content;
 	 padding:8px 12px 8px 12px;
-
+	border-radius:5px;
 	 cursor: pointer;
 	 margin:20px;
 }
