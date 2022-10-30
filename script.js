@@ -325,7 +325,7 @@ function plussify(value) {
 
 function update(event) {
 	for (const field of listfields) {
-	   uservalues[field] = parseFloat(document.getElementById(field).value);
+	   uservalues[field] = parseFloat(document.getElementById(field).value.replace(",","."));
 	}
 
 	calcvalues = do_calc(uservalues);
