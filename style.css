@@ -25,7 +25,7 @@ header{
   position: fixed;
   width: 100%;
   height: var(--header-height);
-  box-shadow: 6px 4px 25px rgba(19, 103, 2, 0.2);
+  box-shadow: 3px 2px 10px rgba(19, 103, 2, 0.2);
   z-index: 100;
   /*background: var(--standard-green);*/
   background: linear-gradient(180deg, rgba(55,130,90,1) 0%, rgba(99,163,117,1) 100%);
@@ -79,7 +79,7 @@ td {
   width:fit-content;
   align-items: center; 
 	justify-content: center;
-	box-shadow: 6px 4px 25px rgba(19, 103, 2, 0.2);
+	box-shadow: 3px 2px 10px rgba(19, 103, 2, 0.2);
 	  margin-left:20px;
 
   }
