@@ -28,7 +28,7 @@ header{
   box-shadow: 6px 4px 25px rgba(19, 103, 2, 0.2);
   z-index: 100;
   /*background: var(--standard-green);*/
-  background: linear-gradient(180deg, rgba(33,100,65,1) 0%, rgba(99,163,117,1) 100%);
+  background: linear-gradient(180deg, rgba(55,130,90,1) 0%, rgba(99,163,117,1) 100%);
     color: #fff;
 }
 
@@ -105,7 +105,7 @@ td {
   
 .config-bloc {
 	/*border:1px solid black;*/
-	box-shadow: 6px 4px 25px rgba(19, 103, 2, 0.2);
+	box-shadow: 3px 2px 10px rgba(19, 103, 2, 0.2);
 	/*border-radius: 10px;*/
 	padding:10px;
 	margin:10px;
@@ -335,7 +335,7 @@ td {
 
 
 .right-button {
-	box-shadow: 6px 4px 25px rgba(19, 103, 2, 0.2);
+	/*box-shadow: 6px 4px 25px rgba(19, 103, 2, 0.2);*/
 	display: flex;
 	border: 2px solid var(--standard-green);
 	border-radius:10px;
@@ -356,7 +356,7 @@ td {
 
 .submit-button {
 	/* background: var(--standard-green); */
-	  background: linear-gradient(0deg, rgba(33,100,65,1) 0%, rgba(99,163,117,1) 100%);
+	  background: linear-gradient(0deg, rgba(55,130,90,1) 0%, rgba(99,163,117,1) 100%);
 	 color: #fff;
 	 width: fit-content;
 	 padding:8px 12px 8px 12px;
