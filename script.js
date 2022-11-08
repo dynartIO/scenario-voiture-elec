@@ -80,9 +80,7 @@ $(document).ready(function(){
 	 $("#submit-button").click(function(){
         $("#result-div").show();
 		 is_shown_result = true;
-		setTimeout(function(){
-			 pageScroll();}, 10);
-		//window.scrollTo(0, document.body.scrollHeight);}, 10);
+		$("#submit-button").hide();
       });
 	  $("#button-carmod").click(function(){
         $("#detail_vehicule").slideToggle("slow");
@@ -94,10 +92,6 @@ $(document).ready(function(){
 	 $("#button-caract").hover(
 		  function() { $("#button-text-caract").show(); },
 		  function() { $("#button-text-caract").hide(); }
-		);
-		 $("#button-carmod").hover(
-		  function() { $("#button-text-carmod").show(); },
-		  function() { $("#button-text-carmod").hide(); }
 		);
 
 });
@@ -112,7 +106,7 @@ function draw() {
 	myorigcalc = do_calc(initvalues);
 	newcalc = do_calc(uservalues);
 
-	svgheight = Math.max(myorigcalc["bilan_total"], newcalc["bilan_total"])*svgscale+50;
+	svgheight = Math.max(myorigcalc["bilan_total"], newcalc["bilan_total"])*svgscale+25;
 		
 	draw_bar(myorigcalc["bilan_total"], myorigcalc["bilan_total"], "actuelles", "#63a375", 0, false);
 	newref = myorigcalc["bilan_total"];
@@ -330,7 +324,7 @@ function update(event) {
 
 	calcvalues = do_calc(uservalues);
 
-	document.getElementById("pct_vt").innerHTML = Math.round(100 - uservalues["part_ve"]);
+	//document.getElementById("pct_vt").innerHTML = Math.round(100 - uservalues["part_ve"]);
 	document.getElementById("pct_ve").innerHTML = Math.round(uservalues["part_ve"]);
 	
 	document.getElementById("nb_vt").innerHTML = Math.round(calcvalues["nb_vt"]/1e5)/10;
@@ -343,14 +337,9 @@ function update(event) {
 	document.getElementById("val_nb_vehicules").innerHTML = uservalues["nb_vehicules"];
 	document.getElementById("val_km_annuel").innerHTML = uservalues["km_annuel"];
 	
-	document.getElementById("diff_nb_vehicules").innerHTML = "(" + plussify(round((uservalues["nb_vehicules"]-initvalues["nb_vehicules"]), 1)) + ")";
-	document.getElementById("diff_km_annuel").innerHTML = "(" + plussify(round(uservalues["km_annuel"]-initvalues["km_annuel"], 1)) + ")";
-	document.getElementById("diff_nb_vt").innerHTML = "(" + plussify(round((calcvalues["nb_vt"]-initcalcvalues["nb_vt"])/1e6,1)) + ")";
-	document.getElementById("diff_nb_ve").innerHTML = "(" + plussify(round((calcvalues["nb_ve"]-initcalcvalues["nb_ve"])/1e6, 1)) + ")";
 	
 	reduction = round((calcvalues["bilan_total"]/initcalcvalues["bilan_total"]-1)*100,0);
-	division_scenario = round(1/(1+(reduction/100)), 1);
-	//document.getElementById("division_scenario").innerHTML = division_scenario;
+
 	
 	
 	myelement = document.getElementById("reduction_scenario");

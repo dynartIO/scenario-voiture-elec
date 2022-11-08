@@ -39,6 +39,7 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 
 
 
+
 </head>
 
 <body>
@@ -54,60 +55,74 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 </header>
 
 <div class="content">
-	<!-- <div style="margin:30px; margin-left:180px; margin-right:180px;"> -->
-		<!-- <p style="font-size:18px; text-align:center;"><b>Le futur du parc automobile est entre vos mains :</b><br>Déterminez ses caractéristiques pour réduire les émissions de gaz à effet de serre.<br>L'objectif est de -40% d'ici 2030, et de -75% (facteur 4) à l'horizon 2050. -->
-		<!-- </p> -->
-	<!-- </div> -->
+
 	<div class="config-all-blocs">
 
-		<div class="config-side">&nbsp;</div>
-
-		<div class="config-bloc">
+		<div class="bloc-shadow" style="width:40%">
 			<div class="config-bloc-line">
-			<p style="font-size:1.3rem; text-align:center;"><b>Le parc automobile du futur est entre vos mains :</b>
+			<h2>Déterminez le parc automobile du&nbsp;futur</h2>
 			</div>
-			<div class="config-bloc-line"><span style="font-size:1rem; text-align:center;"><i>Déterminez ses caractéristiques pour réduire les émissions de gaz à effet de serre.<br>L'objectif est de -40% d'ici 2030, et de -75% à l'horizon 2050.</i></span></p>
+			<div class="config-bloc-line"><span style="font-size:1rem; text-align:center;"><i>L'objectif est de réduire les émissions de gaz à effet de serre de&nbsp;40% d'ici 2030, et&nbsp;de&nbsp;75% à l'horizon 2050.</i></span>
+				
+			</p>
 		
-			<!-- <h3>Votre scénario du futur&nbsp;&nbsp;<span class="gray-notice">(vs. parc actuel)</span></h3> -->
-			</div>
-				<div style="text-align:right;width:95%"><span class="gray-notice">(vs. le parc actuel)</span></div>
-			<div class="config-bloc-line">
-				<input type="range" id="nb_vehicules" style="width:270px" min="0" max="45">
-				&nbsp;&nbsp;&nbsp;<span id="val_nb_vehicules">??</span>&nbsp;millions de véhicules&nbsp;&nbsp;<span id="diff_nb_vehicules" class="gray-notice">(+10.2)</span>
-			</div>
 			
-			
-		<div class="config-part-ve-line config-bloc-line">
+			</div>
 
-				<div class="big_content left_content" style="text-align:right"><span id="pct_vt">??</span>%</div>
-				<img src="img/gasoline_icon.png" class="annexe_car_icon">
-				&nbsp;&nbsp;<input type="range" id="part_ve" style="width:150px">&nbsp;&nbsp;
-				<img src="img/battery_icon.png" class="annexe_car_icon">
-				<div class="big_content right_content"><span id="pct_ve">??</span>%</div>
-				<div class="small_content right_content" style="width:190px">
-				<span id="nb_ve">??</span>&nbsp;millions de VE&nbsp;&nbsp;<span id="diff_nb_ve" class="gray-notice">(+10.2)</span><br>
-				<span id="nb_vt">??</span>&nbsp;millions de VT&nbsp;&nbsp;<span id="diff_nb_vt" class="gray-notice">(+10.2)</span>
-				</div>
-			
+			<div class="config-bloc-line title-input-box">
+				<span id="val_nb_vehicules">??</span>&nbsp;millions de voitures
 			</div>
 			
+			<div class="config-bloc-line">
+				<input type="range" id="nb_vehicules" style="width:280px" min="0" max="45">
+			</div>
+			
+			
+			<div class="config-bloc-line title-input-box">
+				<span id="val_km_annuel" size="5">??</span>&nbsp;km / voiture / an
+			</div>
 		
 			<div class="config-bloc-line">
-			<input type="range" id="km_annuel" style="width:260px" min="1000" max="40000">&nbsp;&nbsp;&nbsp;
-			<span id="val_km_annuel" size="5">??</span>&nbsp;km / véhicule / an&nbsp;&nbsp;<span id="diff_km_annuel" class="gray-notice">(+10.2)</span>
+				<input type="range" id="km_annuel" style="width:280px" min="1000" max="40000">	
 			</div>
 			
-
+			<div class="config-bloc-line title-input-box">
+				<span id="pct_ve">??</span>% de voitures électriques
+			</div>
+			
 		
+			<div class="config-bloc-line">
+				<input type="range" id="part_ve" style="width:280px">	
+			</div>
+			
+			<div class="config-bloc-line subtitle-input-box">
+				Soit&nbsp;<span id="nb_ve">??</span>&nbsp;millions de VE, et&nbsp;<span id="nb_vt">??</span>&nbsp;millions de VT
+			</div>
+			
+			
+		
+			<div class="config-bloc-line title-input-box">
+				Caractéristique des véhicules
+			</div>
+
+			
+
 			<div class="config-bloc-line" style="margin-bottom:0px;">
-		<b>Caractéristique des véhicules</b>
-	</div>
-		<div class="config-bloc-line" style="margin-bottom:0px;">
-			<img src="img/car_icon.png" class="small_car_icon">&nbsp;&nbsp;&nbsp;
-			<img src="img/gasoline_icon.png" class="annexe_car_icon">:&nbsp;<span id="bilan_km_vt">??</span>&nbsp;g eq.CO2/km
-			&nbsp;&nbsp;
-			<img src="img/battery_icon.png" class="annexe_car_icon">:&nbsp;<span id="bilan_km_ve">??</span>&nbsp;g eq.CO2/km
+			<div>
+				<div>
+					<img src="img/gasoline_icon.png" class="annexe_car_icon">:&nbsp;<span id="bilan_km_vt">??</span>&nbsp;g eq.CO2/km
+				</div>
+				<div>
+					<img src="img/battery_icon.png" class="annexe_car_icon">:&nbsp;<span id="bilan_km_ve">??</span>&nbsp;g eq.CO2/km
+				</div>
+			</div>
+			<div id="button-carmod">
+				<a href="#" title="Modifier les caractéristiques" ><div class="small-button"><img src="img/carsetting_icon.svg"></div></a>
+			</div>
 		</div>
+		
+		
+			
 		
 			<div id="detail_vehicule" class="vtve_bloc config-bloc-line" style="display:none">
 			<div class="title_bloc_veh_div" style="text-align:right">
@@ -138,76 +153,55 @@ Vous devez avoir reçu une copie de la GNU General Public License en même temps
 				<input type="text" id="ges_reseau_ve"> g eq.CO2/kWh<br>	
 			</div>
 		</div>
-
-</div>
-
-<!-- SIDE BUTTONS --------------------------------------------------------------------- -->
-
-<div class="config-side" style="display:flex"> 
-	<div class="config-side-col">
-		<div class="config-bloc-line config-bloc-line-small config-side-line" id="button-reinit">
-		<a href="#" onclick="javascript:initialisation()" title="Réinitialiser les valeurs"><div class="right-button"><img src="img/reload_icon.svg"></div></a>
-		</div>
-
-			<div class="config-bloc-line config-bloc-line-small config-side-line" id="button-caract">
-				<a href="#popup" title="Afficher les caractéristiques du parc actuel"><div class="right-button"><img src="img/chart_icon.svg"></div></a>
-			</div>
-				<div class="config-bloc-line config-bloc-line-small config-side-line" id="button-carmod">
-				<a href="#" title="Modifier les caractéristiques des véhicules"><div class="right-button"><img src="img/carsetting_icon.svg"></div></a>
-			</div>
-	</div>
-		<div class="config-side-col">
-		<div class="config-bloc-line config-bloc-line-small config-side-line">
-		<span id="button-text-reinit" style="display:none">Réinitialiser les valeurs</span>&nbsp;
-		</div>
-
-			<div class="config-bloc-line config-bloc-line-small config-side-line">
-				<span id="button-text-caract" style="display:none">Voir les caractéristiques du parc actuel</span>&nbsp;
-			</div>
-				<div class="config-bloc-line config-bloc-line-small config-side-line">
-				<span id="button-text-carmod" style="display:none">Modifier les caractéristiques des véhicules</span>&nbsp;
-			</div>
-	</div>
- </div>
-
-
-</div>
-
-<div>
-<center><div id="submit-button" class="submit-button">
-Voir les résultats de la simulation
-</div>
-</center>
-</div>
-
-<!-- RESULTAT COMPARATIF ----------------- ---------------------------------------------------- -->
-
-<div id="result-div" style="display:none">
-<center>
-
-<div class="result_line">
-
-	<div style="margin-left:20px;margin-right:20px; margin-bottom:10px">
-	<h3>Votre scénario vs. le parc actuel</h3><br>
-		<svg id="dataviz_area" height=290 width=430></svg><br>
-		<p style="font-size:10px;width:430;line-height:1;">Différences liées la fabrication (Fab.), le kilométrage total (Km) et l'efficacité<br>carbone à l'utilisation (Eff) des véhicules thermiques (VT) et éléctriques (VE)</p>
-	</div>
-
-	<div>
 		
-		<h3>Évolution des besoins</h3>
+			<div class="config-bloc-line title-input-box"><div>Réinitialiser</div>
+				<a href="#" onclick="javascript:initialisation()" title="Réinitialiser avec les valeurs du parc actuel">
+					<div class="small-button"><img src="img/reload_icon.svg"></div>
+				</a>
+			</div>
+			<div class="config-bloc-line subtitle-input-box">
+				avec les valeurs du parc actuel
+			</div>
+		
+
+</div>
+
+<!-- SIDE ---------------------------------------------------------------------- -->
+
+<div style="width:45%">
+
+	<div id="submit-button" class="submit-button" style="margin-top:200px; margin-left:50px;">
+		Voir les résultats de la simulation
+	</div>
+
+
+<div id="result-div" class="result_bloc" style="display:none">
+	<div class="bloc-shadow">
+	<h2>
+			<img src="img/arrow_icon.svg" class="annexe_car_icon" style="vertical-align:middle">
+			<span id="reduction_scenario">??</span>&nbsp;d'émissions de gaz à effet de serre
+			<!-- (Facteur&nbsp;<span id="division_scenario">1</span>) -->
+		</h2>
+		
+		<center><svg id="dataviz_area" height=290 width=430></svg><br>
+		<p style="font-size:10px;width:430;line-height:1;">Différences liées la fabrication (Fab.), le kilométrage total (Km) et l'efficacité<br>carbone à l'utilisation (Eff) des véhicules thermiques (VT) et éléctriques (VE)</p></center>
+	</div>
+
+	<div class="bloc-shadow" style="align-items: center;display: flex;flex-direction: column;">
+		<h2 style="margin-bottom:0px">Synthèse du scénario</h2>
+		<div class="config-bloc-line title-input-box">Évolution des besoins</div>
 		<div style="display:flex">
 		<div class="spot_synthese_img"><p><img src="img/car_icon.png" class="annexe_car_icon"></p></div><div class="big_content spot_synthese_value"><p><span id="sobriete_equipement">xx</span></p></div>&nbsp;<div class="spot_synthese_name"><p>de véhicules</p></div>
 		
 		<div class="spot_synthese_img"><p><img src="img/road_icon.svg" class="annexe_car_icon"></p></div>
 		<div class="big_content spot_synthese_value"><p><span id="sobriete_km">xx</span></p></div>&nbsp;<div class="spot_synthese_name"><p>de kilomètres parcourus au total</p></div>
 		</div>
-		<h3>Électrification</h3>
+		<div class="config-bloc-line title-input-box">Électrification</div>
 		<div style="display:flex;align-items:center;justify-content:center;">
 		<div class="spot_synthese_img"><p><img src="img/electricity_icon.svg" class="annexe_car_icon"></p></div>
 		<div class="big_content spot_synthese_value"><p><span id="electrification">xx</span></p></div><div class="spot_synthese_name" style="width:250px"><p>des véhicules thermiques actuels<br>remplacés par un modèle électrique</p></div>
 		</div>
-		<h3>Efficacité carbone des véhicules</h3>
+		<div class="config-bloc-line title-input-box">Efficacité carbone des véhicules</div>
 		<div style="display:flex">
 		<div class="spot_synthese_img"><p><img src="img/gasoline_icon.png" class="annexe_car_icon"></p></div><div class="big_content spot_synthese_value"><p><span id="efficacite_vt">xx</span></p></div><div class="spot_synthese_name"><p>d'émissions<br>par kilomètre</p></div>
 		 <div class="spot_synthese_img"><p><img src="img/battery_icon.png" class="annexe_car_icon"></p></div>
@@ -215,23 +209,27 @@ Voir les résultats de la simulation
 		 <div class="spot_synthese_name"><p>d'émissions<br>par kilomètre</p></div>
 
 		</div>
-<br>
-		<div style="display:flex;align-items:center;justify-content:center;width:480px;">
-			<div class="spot_synthese_img" style="margin-top:7px"><p><img src="img/arrow_icon.svg" class="annexe_car_icon"></p></div>
-			<div class="spot_synthese_value" style="width:fit-content;"><h3>
-			<span id="reduction_scenario">??</span>&nbsp;d'émissions de GES</h3></div>
-			<!-- (Facteur&nbsp;<span id="division_scenario">1</span>) -->
-		</div>
+		<br>
 		
-		
-			
 	</div>
+	
 </div>
 
 
 
-</center>
 </div>
+
+
+
+
+
+</div> <!-- FIN CONTENT ------------- !-->
+
+
+
+<!-- RESULTAT COMPARATIF ----------------- ---------------------------------------------------- -->
+
+
 <br><br><br>
 <footer style="display:flex;align-items:center;justify-content:center;">
 <div>
@@ -271,7 +269,7 @@ Voir les résultats de la simulation
 				<p align="center"><b>Scénario de transition énergétique pour le parc automobile français (Version Beta)</b></p><br>
 				Le parc automobile français émet chaque année plus de 70 millions de tonnes de CO2 chaque année. Pour réduire ces émissions, l'électrification de ces véhicules apparaît comme une solution intéressante, notamment lorsqu'ils sont alimentés par de l'électricité à faible émissions de CO2 comme en France. Néanmoins, la fabrication des voitures éléctriques génère des quantités importantes de CO2 (environ une dizaine de tonnes). 
 				
-				Aussi, est-ce que l'électrification totale est une solution satisfaisante pour réduire les émissions de CO2 d'un facteur 2 d'ici 2030 et d'un facteur 4 d'ici 2050 ? Nous vous proposons de le déterminer par vous-même grâce à ce simulateur.<br><br>
+				Aussi, est-ce que l'électrification totale est une solution satisfaisante pour réduire les émissions de CO2 d'un facteur 2 d'ici 2030 et d'un facteur 4 d'ici 2050&nbsp;? Nous vous proposons de le déterminer par vous-même grâce à ce simulateur.<br><br>
 				
 				Le modèle ne calcule (pour l'instant) que les émissions de gaz à effet de serre. La transition du parc automobile thermique vers l'électrique ne saurait toutefois se résumer à ce seul paramètre, aussi important soit-il. Des questions liées à l'usage de ressources, aux enjeux économiques, aux capacités manufacturières et à la place de l'automobile dans nos sociétés devraient également être abordées pour arbitrer entre différents scénarios.<br><br>
 				
@@ -308,6 +306,7 @@ Voir les résultats de la simulation
 </div>
 
 <!-- POPUP OVERLAY --------------------------------------------------------------------- -->
+<!-- <a href="#popup" title="Afficher les caractéristiques du parc actuel"><div class="right-button"><img src="img/chart_icon.svg"></div></a> -->
 <div class="box-overlay">
         <div class="overlay" id="popup">
             <div class="popup" style="width:500px;">
@@ -384,6 +383,26 @@ Voir les résultats de la simulation
 </div></div></div>
 
 <script type="text/javascript" src="script.js"></script>
+
+
+<!-- Start Open Web Analytics Tracker -->
+<script type="text/javascript">
+//<![CDATA[
+var owa_baseUrl = 'https://analytics.dynartio.com/';
+var owa_cmds = owa_cmds || [];
+owa_cmds.push(['setSiteId', '56abe55240adfa7dd0bbec37151ed767']);
+owa_cmds.push(['trackPageView']);
+owa_cmds.push(['trackClicks']);
+
+(function() {
+    var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+    owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
+    _owa.src = owa_baseUrl + 'modules/base/dist/owa.tracker.js';
+    var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+}());
+//]]>
+</script>
+<!-- End Open Web Analytics Code -->
 
 </body>
 
